@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="icon" href="favicon.ico">
+      <title>NPv4</title>
+      <!-- Bootstrap core CSS -->
+      <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="cover.css" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+
+      <script src="js/ie10-viewport-bug-workaround.js"></script>
+      <script src="lib/jquery-1.6.4.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+      <script src="src/jquery.rss.js"></script>
+      <script>
+         jQuery(function($) {
+           $("#rss-theverge").rss("http://www.theverge.com/rss/index.xml", {
+             limit: 5,
+           })
+         })
+
+         jQuery(function($) {
+           $("#rss-androidpolice").rss("http://feeds.feedburner.com/AndroidPolice", {
+             limit: 5,
+           })
+         })
+
+         jQuery(function($) {
+           $("#rss-engadet").rss("http://www.engadget.com/rss.xml", {
+             limit: 5,
+           })
+         })
+
+      </script>
+   </head>
+   <body>
+      <div class="site-wrapper">
+         <div class="site-wrapper-inner">
+            <div class="cover-container">
+               <div class="masthead clearfix">
+                  <div class="inner">
+                     <div class="masthead-brand">
+                        <a class="nav-link active" href="#">Feed</a>
+                        <div class= "xsmall dimmed">
+                           <a target="_parent" href="http://www.reddit.com" class="collection-item">Reddit </a>
+                           <a target="_parent" href="http://www.omgubuntu.co.uk" class="collection-item">OMGUbuntu </a>
+                           <a target="_parent" href="http://www.teksyndicate.com" class="collection-item">Tek Syndicate </a>
+                           <a target="_parent" href="http://www.lpassociation.com" class="collection-item">LPA </a>
+                           <a target="_parent" href="http://www.arstechnica.com" class="collection-item">ARS Technica </a>
+                           <a target="_parent" href="http://www.theverge.com" class="collection-item">The Verge </a>
+                           <a target="_parent" href="http://www.4chan.org" class="collection-item">4chen </a>
+                        </div>
+                        <a class="nav-link active" href="#">Do</a>
+                        <div class= "xsmall">
+                           <a target="_parent" href="https://mail.google.com/mail/u/0/" class="collection-item">Gmail</a>
+                           <a target="_parent"  href="https://www.outlook.com" class="collection-item">Outlook</a>
+                           <a target="_parent" href="https://drive.google.com/drive/u/0/my-drive" class="collection-item">Drive</a>
+                           <a target="_parent" href="https://drive.google.com/keep" class="collection-item">Keep</a>
+                           <a target="_parent" href="https://www.google.com/maps/dir/37.3350323,-121.8783668/3906+Casanova+Dr,+San+Mateo,+CA+94403,+USA/">Navigate Home</a>
+                        </div>
+                        <a class="nav-link active" href="#">Socials</a>
+                        <div class= "xsmall">
+                           <a target="_parent" href="http://www.facebook.com" class="collection-item">Facebook</a>
+                           <a target="_parent" href="https://photos.google.com" class="collection-item">Photos</a>
+                           <a target="_parent" href="https://www.youtube.com/feed/subscriptions" class="collection-item">YouTube</a>
+                           <a target="_parent" href="http://www.twitter.com" class="collection-item">Twitter</a>
+                           <a target="_parent" href="http://www.facebook.com" class="collection-item">YouTube</a>
+                        </div>
+                        <a class="nav-link active" href="#">School</a>
+                        <div class= "xsmall">
+                           <a target="_parent" href="https://cmshr.cms.sjsu.edu/psp/HSJPRD/?cmd=login&languageCd=ENG&" class="collection-item">MySJSU</a>
+                           <a target="_parent" href="https://idp01.sjsu.edu/idp/Authn/UserPassword" class="collection-item">Canvas</a>
+                           <a target="_parent" href="http://www.wolframalpha.com" class="collection-item">Wolfram Alpha</a>
+                        </div>
+                     </div>
+                     <nav class="nav nav-masthead">
+                        <div class="rss">
+                           <div class="bottom right">
+                              <a class="nav-link active" href="http://www.theverge.com/">The Verge</a>
+                              <div class="xxsmall">
+                                 <div id="rss-theverge"></div>
+                              </div>
+                              <br>
+                              <a class="nav-link active" href="http://www.androidpolice.com/">Android Police</a>
+                              <div class="xxsmall">
+                                 <div id="rss-androidpolice"></div>
+                              </div>
+                              <br>
+                              <a class="nav-link active" href="#">Engadet</a>
+                              <div class="xxsmall">
+                                 <div id="rss-engadet"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+
+
+               <div class="mastfoot">
+                  <div class="inner">
+                     <p>NPv4 x ARKTS</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="js/jquery.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="dist/js/bootstrap.min.js"></script>
+      <script src="js/ie10-viewport-bug-workaround.js"></script>
+   </body>
+</html>
