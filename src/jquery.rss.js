@@ -18,6 +18,7 @@
       tokens: {},
       outputMode: 'json',
       dateFormat: 'dddd MMM Do',
+      dateLocale: 'en',
       effect: 'show',
       offsetStart: false,
       offsetEnd: false,
@@ -27,11 +28,6 @@
       onData: function () {},
       success: function () {}
     }, options || {});
-
-    // The current SSL certificate is only valid for *.herokuapp.com
-    if (this.options.ssl && (this.options.host === 'www.feedrapp.info')) {
-      this.options.host = 'feedrapp.herokuapp.com';
-    }
 
     this.callback = callback || this.options.success;
   };
@@ -92,7 +88,9 @@
           self.options.onData.call(self);
         }
 
-        self.appendEntriesAndApplyEffects($('entries', html.layout), html.entries);
+        var container = $(html.layout).is('entries') ? html.layout : $('entries', html.layout);
+
+        self.appendEntriesAndApplyEffects(container, html.entries);
       }
 
       if (self.effectQueue.length > 0) {
@@ -168,7 +166,7 @@
   };
 
   RSS.prototype.wrapContent = function (content) {
-    if ($.trim(content).indexOf('<') !== 0) {
+    if (($.trim(content).indexOf('<') !== 0)) {
       // the content has no html => create a surrounding div
       return $('<div>' + content + '</div>');
     } else {
@@ -241,6 +239,28 @@
     }
   };
 
+  RSS.prototype.getFormattedDate = function (dateString) {
+    // If a custom formatting function is provided, use that.
+    if (this.options.dateFormatFunction) {
+      return this.options.dateFormatFunction(dateString);
+    } else if (typeof moment !== 'undefined') {
+      // If moment.js is available and dateFormatFunction is not overriding it,
+      // use it to format the date.
+      var date = moment(new Date(dateString));
+
+      if (date.locale) {
+        date = date.locale(this.options.dateLocale);
+      } else {
+        date = date.lang(this.options.dateLocale);
+      }
+
+      return date.format(this.options.dateFormat);
+    } else {
+      // If all else fails, just use the date as-is.
+      return dateString;
+    }
+  };
+
   RSS.prototype.getTokenMap = function (entry) {
     if (!this.feedTokens) {
       var feed = JSON.parse(JSON.stringify(this.feed));
@@ -249,24 +269,11 @@
       this.feedTokens = feed;
     }
 
-    // If moment.js is available, use it to format the date.
-    if (typeof moment !== 'undefined') {
-      this.formattedDate = moment(new Date(entry.publishedDate)).format(this.options.dateFormat);
-    } else {
-      // Otherwise, if a custom formatting function is provided, use that.
-      if (this.options.dateFormatFunction) {
-        this.formattedDate = this.options.dateFormatFunction(entry.publishedDate);
-      } else {
-        // If all else fails, just use the date as-is.
-        this.formattedDate = entry.publishedDate;
-      }
-    }
-
     return $.extend({
       feed:      this.feedTokens,
       url:       entry.link,
       author:    entry.author,
-      date:      this.formattedDate,
+      date:      this.getFormattedDate(entry.publishedDate),
       title:     entry.title,
       body:      entry.content,
       shortBody: entry.contentSnippet,
