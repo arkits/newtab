@@ -10,7 +10,7 @@
 
     this.options = $.extend({
       ssl: false,
-      host: 'www.feedrapp.info',
+      host: 'newstimelol.herokuapp.com',
       limit: null,
       key: null,
       layoutTemplate: '<ul>{entries}</ul>',
