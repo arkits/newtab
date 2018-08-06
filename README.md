@@ -2,7 +2,7 @@
 
 https://arkits.github.io/newtab/   
   
-<img src="https://raw.githubusercontent.com/ArKits/newtab/gh-pages/img/screenshot.PNG">
+<img src="https://i.imgur.com/fksFDsd.jpg">
 
 
 ### Credits
