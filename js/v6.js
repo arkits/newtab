@@ -128,6 +128,14 @@ function loadLinks() {
         .catch((error) => console.log('Caught error when fetching links!', error));
 }
 
+function updateCurrentTime() {
+    document.getElementById('datetime').innerHTML = new Date().toLocaleTimeString();
+    setTimeout(function () {
+        updateCurrentTime();
+    }, 500);
+}
+
 updateNowPlaying();
 updateNewsFeeds();
 loadLinks();
+updateCurrentTime();

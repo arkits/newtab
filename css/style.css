@@ -46,3 +46,7 @@ a {
 .muted {
     color: #33b5e5;
 }
+
+#navbar-full-width {
+    width: 100%;
+}
