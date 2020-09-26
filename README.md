@@ -5,10 +5,10 @@
 </em> 
 <br>
 <br>
-<br>
 </div>
 
-
+<img src="./docs/screenshot_v6.png">
+  
 ## Behind the scenes
 
 ### Now Playing
