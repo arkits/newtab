@@ -5,8 +5,8 @@ body {
 }
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-    url("https://source.unsplash.com/collection/898543/daily") !important;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url("https://source.unsplash.com/collection/898543/daily") !important; */
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
