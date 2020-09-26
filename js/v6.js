@@ -15,6 +15,8 @@ const FEED_CONFIGS = [
 
 const NUMBER_OF_ARTICLES_TO_DISPLAY = 5;
 
+var COVER_ART_URL;
+
 function updateNowPlaying() {
     fetch('https://archit.xyz/musick/now', {
         method: 'GET',
@@ -33,6 +35,8 @@ function updateNowPlaying() {
             ).style.background = `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${response.nowPlaying.coverArtUrl})`;
             document.getElementById('now-playing-card').style.backgroundPosition = `center`;
             document.getElementById('now-playing-card').style.backgroundSize = `cover`;
+
+            COVER_ART_URL = response.nowPlaying.coverArtUrl;
         })
         .catch((error) => console.log('Caught error when fetching now playing!', error));
 }
@@ -44,7 +48,7 @@ function updateNewsFeeds() {
     var feed = document.getElementById('feed');
     feed.appendChild(feedRow);
 
-    FEED_CONFIGS.forEach((FEED_CONFIG) => {
+    FEED_CONFIGS.forEach((FEED_CONFIG, idx) => {
         fetch(`https://archit.xyz/rss/feed?url=${FEED_CONFIG.url}`, {
             method: 'GET',
             redirect: 'follow'
@@ -77,6 +81,11 @@ function updateNewsFeeds() {
                 feedCol.appendChild(articles);
 
                 feedRow.appendChild(feedCol);
+
+                // When the last feed has been loaded, update page accent color...
+                if (idx == FEED_CONFIGS.length - 1) {
+                    updateAccentColor(COVER_ART_URL);
+                }
             })
             .catch((error) => console.log('Caught error when fetching feed!', error));
     });
@@ -133,6 +142,50 @@ function updateCurrentTime() {
     setTimeout(function () {
         updateCurrentTime();
     }, 500);
+}
+
+function updateAccentColor(imageUrl) {
+    const colorThief = new ColorThief();
+
+    // This will load the image again...
+    var img = document.createElement('img');
+    img.setAttribute('src', imageUrl);
+    img.crossOrigin = 'Anonymous';
+
+    img.addEventListener('load', function () {
+        console.log();
+        var dominantColor = colorThief.getColor(img);
+        if (isDark(dominantColor[0], dominantColor[1], dominantColor[2])) {
+            document.querySelectorAll('.muted').forEach((element) => {
+                element.style.color = '#cecece';
+            });
+        } else {
+            document.querySelectorAll('.muted').forEach((element) => {
+                element.style.color = rgbToHex(dominantColor[0], dominantColor[1], dominantColor[2]);
+            });
+        }
+    });
+}
+
+const rgbToHex = (r, g, b) =>
+    '#' +
+    [r, g, b]
+        .map((x) => {
+            const hex = x.toString(16);
+            return hex.length === 1 ? '0' + hex : hex;
+        })
+        .join('');
+
+function isDark(r, g, b) {
+    // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+    hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+
+    // Using the HSP value, determine whether the color is light or dark
+    if (hsp > 127.5) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 updateNowPlaying();

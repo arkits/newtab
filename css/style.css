@@ -45,6 +45,7 @@ a {
 
 .muted {
     color: #33b5e5;
+    text-shadow: 1px 1px #000000;
 }
 
 #navbar-full-width {
