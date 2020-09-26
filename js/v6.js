@@ -163,9 +163,11 @@ function updateAccentColor(imageUrl) {
             // if the color is a dark color...
             if (isDark(color[0], color[1], color[2])) {
                 // ignore it...
+                console.log('Too dark!', color);
                 continue;
             } else {
                 dominantColor = rgbToHex(color[0], color[1], color[2]);
+                console.log('Setting dominantColor=', dominantColor);
                 break;
             }
         }
@@ -189,9 +191,10 @@ const rgbToHex = (r, g, b) =>
 function isDark(r, g, b) {
     // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
     hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+    console.log('hsp=', hsp);
 
     // Using the HSP value, determine whether the color is light or dark
-    if (hsp > 127.5) {
+    if (hsp > 90) {
         return false;
     } else {
         return true;
