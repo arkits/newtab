@@ -1,32 +1,32 @@
 html,
 body {
-  font-family: "Inter", sans-serif;
-  height: 100%;
+    font-family: 'Inter', sans-serif;
+    height: 100%;
 }
 
 body {
-  /* background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    /* background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     url("https://source.unsplash.com/collection/898543/daily") !important; */
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
 #now-playing-text-col {
-  padding-top: 20px;
-  padding-left: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 #now-playing-cover-art {
-  height: 100%;
-  width: fit-content;
+    height: 100%;
+    width: fit-content;
 }
 
 #feed-card {
-  margin-top: 0px;
+    margin-top: 0px;
 }
 
 .feed-col {
-  padding-right: 15px;
-  padding-left: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
