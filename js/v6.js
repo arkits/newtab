@@ -74,7 +74,7 @@ function updateNewsFeeds() {
                 feedCol.className = 'col-sm feed-col';
 
                 var feedTitle = document.createElement('h4');
-                feedTitle.className = 'card-title muted';
+                feedTitle.className = 'card-title accent';
                 feedTitle.textContent = FEED_CONFIG.pretty_name;
 
                 feedCol.appendChild(feedTitle);
@@ -111,7 +111,7 @@ function loadLinks() {
 
                 // Create a title for the link type
                 var linkColTitle = document.createElement('h4');
-                linkColTitle.className = 'card-title muted';
+                linkColTitle.className = 'card-title accent';
                 linkColTitle.textContent = linkType;
 
                 // Add the title to the column
@@ -147,23 +147,33 @@ function updateCurrentTime() {
 function updateAccentColor(imageUrl) {
     const colorThief = new ColorThief();
 
-    // This will load the image again...
+    // This will load the image again... TODO: find a better way to grab the image
     var img = document.createElement('img');
     img.setAttribute('src', imageUrl);
     img.crossOrigin = 'Anonymous';
 
     img.addEventListener('load', function () {
-        console.log();
-        var dominantColor = colorThief.getColor(img);
-        if (isDark(dominantColor[0], dominantColor[1], dominantColor[2])) {
-            document.querySelectorAll('.muted').forEach((element) => {
-                element.style.color = '#cecece';
-            });
-        } else {
-            document.querySelectorAll('.muted').forEach((element) => {
-                element.style.color = rgbToHex(dominantColor[0], dominantColor[1], dominantColor[2]);
-            });
+        // default dominantColor
+        var dominantColor = '#cecece';
+
+        // get colors from the image
+        var colorPalette = colorThief.getPalette(img);
+
+        for (var color of colorPalette) {
+            // if the color is a dark color...
+            if (isDark(color[0], color[1], color[2])) {
+                // ignore it...
+                continue;
+            } else {
+                dominantColor = rgbToHex(color[0], color[1], color[2]);
+                break;
+            }
         }
+
+        // update all the elements
+        document.querySelectorAll('.accent').forEach((element) => {
+            element.style.color = dominantColor;
+        });
     });
 }
 
