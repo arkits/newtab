@@ -22,10 +22,12 @@ function updateNowPlaying() {
     })
         .then((r) => r.json())
         .then((response) => {
+            // Set Now Playing text...
             document.getElementById('now-playing-track-name').textContent = response.nowPlaying.trackName;
             document.getElementById('now-playing-artist-name').textContent = response.nowPlaying.artistName;
             document.getElementById('now-playing-album-name').textContent = response.nowPlaying.albumName;
 
+            // Set the background of the Now Playing card...
             document.getElementById(
                 'now-playing-card'
             ).style.background = `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${response.nowPlaying.coverArtUrl})`;
@@ -56,6 +58,7 @@ function updateNewsFeeds() {
                     articleLink.innerHTML = newsItem.title;
                     articleLink.href = newsItem.link;
                     articleLink.target = '_blank';
+                    articleLink.className = 'medium-bold';
 
                     var articleListing = document.createElement('ul');
                     articleListing.appendChild(articleLink);
@@ -67,7 +70,7 @@ function updateNewsFeeds() {
                 feedCol.className = 'col-sm feed-col';
 
                 var feedTitle = document.createElement('h4');
-                feedTitle.className = 'card-title';
+                feedTitle.className = 'card-title muted';
                 feedTitle.textContent = FEED_CONFIG.pretty_name;
 
                 feedCol.appendChild(feedTitle);
@@ -99,7 +102,7 @@ function loadLinks() {
 
                 // Create a title for the link type
                 var linkColTitle = document.createElement('h4');
-                linkColTitle.className = 'card-title';
+                linkColTitle.className = 'card-title muted';
                 linkColTitle.textContent = linkType;
 
                 // Add the title to the column
@@ -112,6 +115,8 @@ function loadLinks() {
                     var linkLink = document.createElement('a');
                     linkLink.innerHTML = prettyLinkName;
                     linkLink.href = linksObject[prettyLinkName];
+                    linkLink.className = 'medium-bold';
+
                     linkCol.appendChild(linkLink);
                     linkCol.appendChild(document.createElement('br'));
                 }

@@ -30,3 +30,19 @@ body {
     padding-right: 15px;
     padding-left: 15px;
 }
+
+.semi-bold {
+    font-weight: 600;
+}
+
+.medium-bold {
+    font-weight: 500;
+}
+
+a {
+    color: #ffffff !important;
+}
+
+.muted {
+    color: #33b5e5;
+}
