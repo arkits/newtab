@@ -74,7 +74,7 @@ function updateNewsFeeds() {
                 feedCol.className = 'col-sm feed-col';
 
                 var feedTitle = document.createElement('h4');
-                feedTitle.className = 'card-title accent';
+                feedTitle.className = 'card-title accent semi-bold';
                 feedTitle.textContent = FEED_CONFIG.pretty_name;
 
                 feedCol.appendChild(feedTitle);
@@ -111,7 +111,7 @@ function loadLinks() {
 
                 // Create a title for the link type
                 var linkColTitle = document.createElement('h4');
-                linkColTitle.className = 'card-title accent';
+                linkColTitle.className = 'card-title accent semi-bold';
                 linkColTitle.textContent = linkType;
 
                 // Add the title to the column
