@@ -176,6 +176,8 @@ function updateAccentColor(imageUrl) {
         document.querySelectorAll('.accent').forEach((element) => {
             element.style.color = dominantColor;
         });
+        // update navbar color
+        document.getElementById('navbar').style.backgroundColor = dominantColor;
     });
 }
 

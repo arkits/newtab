@@ -46,8 +46,14 @@ a {
 .accent {
     color: #cecece;
     text-shadow: 1px 1px #000000;
+    transition: color 300ms linear;
 }
 
 #navbar-full-width {
     width: 100%;
+}
+
+#navbar {
+    background-color: black;
+    transition: background-color 300ms linear;
 }
