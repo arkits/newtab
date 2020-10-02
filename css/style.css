@@ -1,41 +1,60 @@
+html,
 body {
-  font-family: 'Roboto Slab', serif;
-  display: flex;
-  min-height: 110vh;
-  flex-direction: column;
-  background-size: cover;
-  background:
-  linear-gradient( rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("https://source.unsplash.com/collection/898543/daily");
-  background-size: cover;
+    font-family: 'Inter', sans-serif;
+    height: 100%;
+    background-color: #191D21;
 }
 
-main {
-  flex: 1 0 auto;
+body {
+    /* background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url("https://source.unsplash.com/collection/898543/daily") !important; */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
-h6 {
-  font-size: 130%;
-  color: white;
-  text-shadow: 2px 2px #000000;
+#now-playing-text-col {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+#now-playing-cover-art {
+    height: 100%;
+    width: fit-content;
+}
+
+#feed-card {
+    margin-top: 0px;
+}
+
+.feed-col {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.semi-bold {
+    font-weight: 600;
+}
+
+.medium-bold {
+    font-weight: 500;
 }
 
 a {
-  color: #cecece;
-  text-shadow: 2px 2px #000000;
+    color: #ffffff !important;
 }
 
-a:hover {
-  box-shadow: inset 0 0px 0 white, inset 0 -1px 0 white
+.accent {
+    color: #cecece;
+    text-shadow: 1px 1px #000000;
+    transition: color 300ms linear;
 }
 
-span {
-  margin: 0 2px;
+#navbar-full-width {
+    width: 100%;
 }
 
-span:first-of-type {
-  margin-left: 0;
-}
-
-span:last-of-type {
-  margin-right: 0;
+#navbar {
+    background-color: black;
+    transition: background-color 300ms linear;
 }

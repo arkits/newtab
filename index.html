@@ -2,155 +2,76 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-  <title>NPv5 </title>
-  <!-- CSS  -->
-  <link rel="icon" type="image/png" href="img/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <!-- JS -->
-  <script src="js/jquery-1.6.4.min.js"></script>
-  <script src="js/jquery.rss.js"></script>
-  <script src="js/init.js"></script>
-
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="60">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="static/favicon/favicon.ico">
+    <title>NPv6</title>
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.0/css/halfmoon-variables.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />
 </head>
 
-<body>
-  <main>
-    <div class="container">
-
-      <br>
-      <br>
-      <br>
-
-      <div class="row">
-        <div class="col s12 m6 l3">
-          <h6 class="center">Feed</h6>
-          <span>
-            <a target="_parent" href="http://www.reddit.com">Reddit</a>
-          </span>
-          <span>
-            <a target="_parent" href="http://www.omgubuntu.co.uk">OMGUbuntu</a>
-          </span>
-          <span>
-            <a target="_parent" href="http://www.lpassociation.com">LPA</a>
-          </span>
-          <span>
-            <a target="_parent" href="http://www.arstechnica.com">ARS Technica</a>
-          </span>
-          <span>
-            <a target="_parent" href="http://www.theverge.com">The Verge</a>
-          </span>
-          <span>
-            <a target="_parent" href="http://www.androidpolice.com/">Android Police</a>
-          </span>
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true"
+    data-set-preferred-mode-onload="true">
+    <div class="page-wrapper with-navbar-fixed-bottom">
+        <div class="content-wrapper">
+            <div class="container-sm">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div id="now-playing-card" class="card p-0">
+                            <div class="row">
+                                <div id="now-playing-text-col" class="col">
+                                    <div class="title">
+                                        Now Playing
+                                    </div>
+                                    <h4 id="now-playing-track-name" class="semi-bold"></h4>
+                                    <h6>
+                                        <span id="now-playing-artist-name"></span> <br>
+                                        <span id="now-playing-album-name"></span>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div id="links"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="feed-card" class="card">
+                    <div id="feed"></div>
+                </div>
+            </div>
         </div>
-
-        <div class="col s12 m6 l3">
-          <h6 class="center">Do</h6>
-          <span>
-            <a target="_parent" href="https://mail.google.com/mail/u/0/" class="collection-item">Gmail</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://outlook.live.com/owa/" class="collection-item">Outlook</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://drive.google.com/drive/u/0/my-drive" class="collection-item">Drive</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://drive.google.com/keep" class="collection-item">Keep</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://www.google.com/maps/dir/37.3350323,-121.8783668/3906+Casanova+Dr,+San+Mateo,+CA+94403,+USA/">GoHome</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://www.wellsfargo.com/" class="collection-item">WF</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://www.chase.com/" class="collection-item">Chase</a>
-          </span>
-        </div>
-
-        <div class="col s12 m6 l3">
-          <h6 class="center">Social</h6>
-          <span>
-            <a target="_parent" href="http://www.facebook.com" class="collection-item">Facebook</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://photos.google.com" class="collection-item">Photos</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://www.youtube.com/feed/subscriptions" class="collection-item">YouTube</a>
-          </span>
-          <span>
-            <a target="_parent" href="http://www.twitter.com" class="collection-item">Twitter</a>
-          </span>
-        </div>
-
-        <div class="col s12 m6 l3">
-          <h6 class="center">Messenger</h6>
-          <span>
-            <a target="_parent" href="https://web.telegram.org/#/im" class="collection-item">Telegram</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://web.whatsapp.com/" class="collection-item">WhatsApp</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://www.messenger.com/" class="collection-item">Messenger</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://discordapp.com/channels/@me" class="collection-item">Discord</a>
-          </span>
-          <span>
-            <a target="_parent" href="https://hangouts.google.com" class="collection-item">Hangouts</a>
-          </span>
-        </div>
-
-      </div>
-
-      <br>
-      <br>
-
-
-      <div class="row">
-        <div class="col s12 m4">
-          <h6 class="center">
-            <a href="http://www.theverge.com">The Verge</a>
-          </h6>
-          <div id="rss-theverge"></div>
-        </div>
-        <div class="col s12 m4">
-          <h6 class="center">
-            <a href="http://www.androidpolice.com">Android Police</a>
-          </h6>
-          <div id="rss-androidpolice"></div>
-        </div>
-        <div class="col s12 m4">
-          <h6 class="center">
-            <a href="http://www.arstechnica.com">Ars Technica</a>
-          </h6>
-          <div id="rss-ars"></div>
-        </div>
-      </div>
+        <nav id="navbar" class="navbar navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div id="navbar-full-width">
+                    <div class="row align-items-center h-100">
+                        <div class="col">
+                            <a href="https://github.com/arkits/newtab" target="_blank">NPv6</a>
+                        </div>
+                        <div class="col">
+                            <div class="text-center">
+                                <span class="semi-bold" id="datetime"></span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="text-right">
+                                <a href="https://github.com/arkits/newtab" target="_blank">@arkits</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </div>
-
-
-  </main>
-
-  <footer class="page-footer grey darken-2">
-    <div class="footer-copyright">
-      <div class="container">
-        <center>
-          <a class="grey-text text-lighten-4" href="#!">NPv5 x ARKTS</a>
-        </center>
-      </div>
-    </div>
-  </footer>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.0/js/halfmoon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="js/v6.js"></script>
 </body>
 
 </html>

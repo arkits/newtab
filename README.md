@@ -1,13 +1,20 @@
-# NPv5
+<h1 align="center">NPv6</h1>
+<div align="center">
+<em>
+<a href="https://arkits.github.io/newtab/">Check it out!</a>
+</em> 
+<br>
+<br>
+</div>
 
-https://arkits.github.io/newtab/   
+<img src="./docs/screenshot_v6.png">
   
-<img src="https://i.imgur.com/fksFDsd.jpg">
+## Behind the scenes
 
+### Now Playing
 
-### Credits
+The `Now Playing` card is powered by [lastfm-exporter](https://github.com/arkits/lastfm-exporter) which exposes a REST API to fetch the now playing music of a user.
 
-•	RSS Feed is based on - https://github.com/sdepold/jquery-rss    
-•	NPv5 uses the images from Unsplash.com for background imagery  
-•	NPv5 also uses Materialize CSS
+### News Feed
 
+The `News Feed` card is powered by [rss-exporter](https://github.com/arkits/rss-exporter) which exposes a REST API to fetch a parsed RSS news feed for a particular RSS news feed.

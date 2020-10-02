@@ -1,0 +1,19 @@
+{
+    "Socials": {
+        "Facebook": "https://www.facebook.com/",
+        "Twitter": "https://twitter.com/home",
+        "YouTube": "https://www.youtube.com/feed/subscriptions",
+        "FB Messenger": "https://www.messenger.com/",
+        "Messages": "https://messages.google.com/web/conversations"
+    },
+    "Do": {
+        "Gmail": "https://mail.google.com/mail/u/0/#inbox",
+        "Google Drive": "https://drive.google.com/drive/u/0/my-drive",
+        "Outlook": "https://outlook.live.com/mail/0/inbox"
+    },
+    "Feeds": {
+        "Reddit": "https://www.reddit.com/",
+        "HN": "https://news.ycombinator.com/show",
+        "Slickdeals": "https://slickdeals.net/"
+    }
+}
