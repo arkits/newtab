@@ -36,9 +36,16 @@ function updateNowPlaying() {
             document.getElementById('now-playing-card').style.backgroundPosition = `center`;
             document.getElementById('now-playing-card').style.backgroundSize = `cover`;
 
-            COVER_ART_URL = response.nowPlaying.coverArtUrl;
+            if (COVER_ART_URL != response.nowPlaying.coverArtUrl) {
+                COVER_ART_URL = response.nowPlaying.coverArtUrl;
+                updateAccentColor(COVER_ART_URL);
+            }
         })
         .catch((error) => console.log('Caught error when fetching now playing!', error));
+
+    setTimeout(function () {
+        updateNowPlaying();
+    }, 10000);
 }
 
 function updateNewsFeeds() {
@@ -81,11 +88,6 @@ function updateNewsFeeds() {
                 feedCol.appendChild(articles);
 
                 feedRow.appendChild(feedCol);
-
-                // When the last feed has been loaded, update page accent color...
-                if (idx == FEED_CONFIGS.length - 1) {
-                    updateAccentColor(COVER_ART_URL);
-                }
             })
             .catch((error) => console.log('Caught error when fetching feed!', error));
     });
@@ -154,7 +156,7 @@ function updateAccentColor(imageUrl) {
 
     img.addEventListener('load', function () {
         // default dominantColor
-        var dominantColor = '#cecece';
+        var dominantColor = [206, 206, 206];
 
         // get colors from the image
         var colorPalette = colorThief.getPalette(img);
@@ -166,18 +168,19 @@ function updateAccentColor(imageUrl) {
                 console.log('Too dark!', color);
                 continue;
             } else {
-                dominantColor = rgbToHex(color[0], color[1], color[2]);
+                dominantColor = [color[0], color[1], color[2]];
                 console.log('Setting dominantColor=', dominantColor);
                 break;
             }
         }
 
-        // update all the elements
-        document.querySelectorAll('.accent').forEach((element) => {
-            element.style.color = dominantColor;
-        });
+        var dominantColorHex = rgbToHex(dominantColor[0], dominantColor[1], dominantColor[2]);
+
+        // update accent color css var
+        document.documentElement.style.setProperty('--accent-color', dominantColorHex);
+
         // update navbar color
-        document.getElementById('navbar').style.backgroundColor = dominantColor;
+        document.getElementById('navbar').style.backgroundColor = dominantColorHex;
     });
 }
 
@@ -191,19 +194,22 @@ const rgbToHex = (r, g, b) =>
         .join('');
 
 function isDark(r, g, b) {
-    // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
-    hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
-    console.log('hsp=', hsp);
-
-    // Using the HSP value, determine whether the color is light or dark
-    if (hsp > 90) {
+    if (calculateHsp(r, g, b) > 90) {
         return false;
     } else {
         return true;
     }
 }
 
-updateNowPlaying();
-updateNewsFeeds();
-loadLinks();
-updateCurrentTime();
+function calculateHsp(r, g, b) {
+    // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+    var hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+    return hsp;
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    updateNewsFeeds();
+    loadLinks();
+    updateCurrentTime();
+    updateNowPlaying();
+});
