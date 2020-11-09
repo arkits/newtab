@@ -178,6 +178,11 @@ function updateAccentColor(imageUrl) {
 
         // update accent color css var
         document.documentElement.style.setProperty('--accent-color', dominantColorHex);
+        if (isLight(dominantColor[0], dominantColor[1], dominantColor[2])) {
+            document.documentElement.style.setProperty('--inverted-accent-color', '#25292C');
+        } else {
+            document.documentElement.style.setProperty('--inverted-accent-color', '#E0BCB0');
+        }
 
         // update navbar color
         document.getElementById('navbar').style.backgroundColor = dominantColorHex;
@@ -195,6 +200,14 @@ const rgbToHex = (r, g, b) =>
 
 function isDark(r, g, b) {
     if (calculateHsp(r, g, b) > 90) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function isLight(r, g, b) {
+    if (calculateHsp(r, g, b) < 120) {
         return false;
     } else {
         return true;

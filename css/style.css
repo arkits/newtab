@@ -57,5 +57,9 @@ a {
 #navbar {
     background-color: black;
     transition: background-color 300ms linear;
-    text-shadow: 1px 1px 2px #25292C;
+}
+
+.accent-inverted {
+    color: var(--inverted-accent-color) !important;
+    transition: color 300ms linear;
 }
