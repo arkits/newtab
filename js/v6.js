@@ -221,6 +221,7 @@ function calculateHsp(r, g, b) {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
+    halfmoon.toggleDarkMode();
     updateNewsFeeds();
     loadLinks();
     updateCurrentTime();
