@@ -55,13 +55,26 @@ function updateNewsFeeds() {
     var feed = document.getElementById('feed');
     feed.appendChild(feedRow);
 
-    FEED_CONFIGS.forEach((FEED_CONFIG, idx) => {
-        fetch(`https://archit.xyz/rss/feed?url=${FEED_CONFIG.url}`, {
+    let feedUrls = FEED_CONFIGS.map((feedConfig) => `https://archit.xyz/rss/feed?url=${feedConfig.url}`);
+
+    let feedPromises = feedUrls.map((feedUrl) =>
+        fetch(feedUrl, {
             method: 'GET',
             redirect: 'follow'
         })
-            .then((r) => r.json())
-            .then((response) => {
+    );
+
+    Promise.all(feedPromises)
+        .then((responses) => {
+            return Promise.all(
+                responses.map(function (r) {
+                    return r.json();
+                })
+            );
+        })
+        .then((responsesJson) => {
+            responsesJson.forEach((response) => {
+                console.log(response);
                 var articles = document.createElement('div');
 
                 response.items.slice(0, NUMBER_OF_ARTICLES_TO_DISPLAY).forEach((newsItem) => {
@@ -82,15 +95,17 @@ function updateNewsFeeds() {
 
                 var feedTitle = document.createElement('h4');
                 feedTitle.className = 'card-title accent semi-bold';
-                feedTitle.textContent = FEED_CONFIG.pretty_name;
+                feedTitle.textContent = response.title;
 
                 feedCol.appendChild(feedTitle);
                 feedCol.appendChild(articles);
 
                 feedRow.appendChild(feedCol);
-            })
-            .catch((error) => console.log('Caught error when fetching feed!', error));
-    });
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 }
 
 function loadLinks() {

@@ -1,76 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" href="static/favicon/favicon.ico" />
+        <title>NPv6</title>
+        <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="static/favicon/favicon.ico">
-    <title>NPv6</title>
-    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.0/css/halfmoon-variables.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet" />
-</head>
-
-<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-set-preferred-mode-onload="true">
-    <div class="page-wrapper with-navbar-fixed-bottom">
-        <div class="content-wrapper">
-            <div class="container-sm">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div id="now-playing-card" class="card p-0">
-                            <div class="row">
-                                <div id="now-playing-text-col" class="col">
-                                    <div class="title">
-                                        Now Playing
+    <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars">
+        <div class="page-wrapper with-navbar-fixed-bottom">
+            <div class="content-wrapper">
+                <div class="container-sm">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div id="now-playing-card" class="card p-0">
+                                <div class="row">
+                                    <div id="now-playing-text-col" class="col">
+                                        <div class="title">Now Playing</div>
+                                        <h4 id="now-playing-track-name" class="semi-bold"></h4>
+                                        <h6>
+                                            <span id="now-playing-artist-name"></span> <br />
+                                            <span id="now-playing-album-name"></span>
+                                        </h6>
                                     </div>
-                                    <h4 id="now-playing-track-name" class="semi-bold"></h4>
-                                    <h6>
-                                        <span id="now-playing-artist-name"></span> <br>
-                                        <span id="now-playing-album-name"></span>
-                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div id="links"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="feed-card" class="card">
+                        <div id="feed"></div>
+                    </div>
+                </div>
+            </div>
+            <nav id="navbar" class="navbar navbar-fixed-bottom">
+                <div class="container-fluid">
+                    <div id="navbar-full-width">
+                        <div class="row align-items-center h-100">
+                            <div class="col">
+                                <a class="accent-inverted" href="https://github.com/arkits/newtab" target="_blank"
+                                    >NPv6</a
+                                >
+                            </div>
+                            <div class="col">
+                                <div class="text-center">
+                                    <span class="accent-inverted" id="datetime"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="text-right">
+                                    <a class="accent-inverted" href="https://github.com/arkits/newtab" target="_blank"
+                                        >GitHub</a
+                                    >
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card">
-                            <div id="links"></div>
-                        </div>
-                    </div>
                 </div>
-                <div id="feed-card" class="card">
-                    <div id="feed"></div>
-                </div>
-            </div>
+            </nav>
         </div>
-        <nav id="navbar" class="navbar navbar-fixed-bottom">
-            <div class="container-fluid">
-                <div id="navbar-full-width">
-                    <div class="row align-items-center h-100">
-                        <div class="col">
-                            <a class="accent-inverted" href="https://github.com/arkits/newtab" target="_blank">NPv6</a>
-                        </div>
-                        <div class="col">
-                            <div class="text-center">
-                                <span class="accent-inverted" id="datetime"></span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="text-right">
-                                <a class="accent-inverted" href="https://github.com/arkits/newtab"
-                                    target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.0/js/halfmoon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
-    <script src="js/v6.js"></script>
-</body>
-
+        <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+        <script src="js/v6.js"></script>
+    </body>
 </html>
