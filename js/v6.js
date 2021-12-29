@@ -1,15 +1,12 @@
 const FEED_CONFIGS = [
     {
-        url: 'https://www.theverge.com/rss/index.xml',
-        pretty_name: 'The Verge'
+        url: 'https://www.theverge.com/rss/index.xml'
     },
     {
-        url: 'https://www.androidpolice.com/feed/',
-        pretty_name: 'Android Police'
+        url: 'https://www.androidpolice.com/feed/'
     },
     {
-        url: 'http://feeds.arstechnica.com/arstechnica/index',
-        pretty_name: 'Ars Technica'
+        url: 'http://feeds.arstechnica.com/arstechnica/index'
     }
 ];
 
@@ -18,7 +15,7 @@ const NUMBER_OF_ARTICLES_TO_DISPLAY = 5;
 var COVER_ART_URL;
 
 function updateNowPlaying() {
-    fetch('https://archit.xyz/musick/now', {
+    fetch('https://musick.archit.xyz/musick/now', {
         method: 'GET',
         redirect: 'follow'
     })
@@ -55,7 +52,7 @@ function updateNewsFeeds() {
     var feed = document.getElementById('feed');
     feed.appendChild(feedRow);
 
-    let feedUrls = FEED_CONFIGS.map((feedConfig) => `https://archit.xyz/rss/feed?url=${feedConfig.url}`);
+    let feedUrls = FEED_CONFIGS.map((feedConfig) => `https://rss.archit.xyz/rss/feed?url=${feedConfig.url}`);
 
     let feedPromises = feedUrls.map((feedUrl) =>
         fetch(feedUrl, {
