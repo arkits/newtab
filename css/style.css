@@ -63,3 +63,7 @@ a {
     color: var(--inverted-accent-color) !important;
     transition: color 300ms linear;
 }
+
+#now-playing-fullscreen {
+    height: 100%;
+}
