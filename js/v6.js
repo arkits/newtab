@@ -3,7 +3,7 @@ const FEED_CONFIGS = [
         url: 'https://www.theverge.com/rss/index.xml'
     },
     {
-        url: 'https://www.androidpolice.com/feed/'
+        url: 'https://www.reddit.com/r/Android.rss'
     },
     {
         url: 'http://feeds.arstechnica.com/arstechnica/index'
